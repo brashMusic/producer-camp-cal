@@ -1,3 +1,6 @@
 *.ics
 .producer_camp_ics
 .DS_Store
+sync.log
+launchd.out
+launchd.err
