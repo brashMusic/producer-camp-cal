@@ -9,6 +9,7 @@ curl -s -m 30 "$(cat $HOME/.producer_camp_ics)" -o /tmp/pc_cal.ics 2>>"$LOG" || 
 git add calendar.png
 if git commit -m "Update calendar $(date +%Y-%m-%dT%H:%M)" >>"$LOG" 2>&1; then
   git push origin main >>"$LOG" 2>&1 && echo "[$(date)] pushed" >>"$LOG"
+  curl -s "https://purge.jsdelivr.net/gh/brashMusic/producer-camp-cal@main/calendar.png" >>"$LOG" 2>&1
 else
   echo "[$(date)] no changes" >>"$LOG"
 fi
